@@ -27,6 +27,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/gradetion_blue">
 
+                <!--포스터-->
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
@@ -37,7 +38,7 @@
                     android:layout_marginEnd="34dp"
                     android:layout_marginRight="34dp"
                     android:layout_marginBottom="16dp"
-                    android:contentDescription="TODO"
+                    android:contentDescription="@string/error_message"
                     android:src="@drawable/image11"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
@@ -54,6 +55,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/imageView"
                     app:layout_constraintStart_toEndOf="@+id/imageView">
 
+                    <!--제목, 연령제한이미지-->
                     <LinearLayout
                         android:id="@+id/linearLayout"
                         android:layout_width="wrap_content"
@@ -62,12 +64,13 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginBottom="5dp"
                         app:layout_constraintBottom_toTopOf="@+id/textView2"
-                        app:layout_constraintStart_toStartOf="parent">
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="군도"
+                            android:text="@string/movie_name"
                             android:textColor="#ffffff"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -77,10 +80,12 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_marginLeft="10dp"
+                            android:contentDescription="@string/error_message"
                             android:src="@drawable/ic_15" />
 
                     </LinearLayout>
 
+                    <!--개봉일-->
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
@@ -88,25 +93,52 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginBottom="1dp"
-                        android:text="2014.07.23 개봉"
+                        android:text="@string/premiere_day"
                         android:textColor="#ffffff"
                         android:textSize="18sp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView3"
+                        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textView3"
+                    <!--장르, 상영시간-->
+                    <LinearLayout
+                        android:id="@+id/linearLayout3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginBottom="24dp"
-                        android:text="액션 / 137분"
-                        android:textColor="#ffffff"
-                        android:textSize="18sp"
+                        android:orientation="horizontal"
+                        android:padding="2dp"
                         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent">
 
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/genre"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:text="@string/slash"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/screening_time"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <!--좋아요 싫어요 버튼-->
                     <LinearLayout
                         android:id="@+id/linearLayout2"
                         android:layout_width="wrap_content"
@@ -121,6 +153,7 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
+                            android:contentDescription="@string/error_message"
                             android:src="@drawable/ic_thumb_up" />
 
                         <TextView
@@ -128,7 +161,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginLeft="5dp"
-                            android:text="15"
+                            android:text="@string/like_num"
                             android:textColor="#ffffff"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -138,6 +171,7 @@
                             android:layout_height="30dp"
                             android:layout_marginStart="25dp"
                             android:layout_marginLeft="25dp"
+                            android:contentDescription="@string/error_message"
                             android:src="@drawable/ic_thumb_down" />
 
                         <TextView
@@ -145,7 +179,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginLeft="5dp"
-                            android:text="1"
+                            android:text="@string/unlike_num"
                             android:textColor="#ffffff"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -175,14 +209,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
                         android:layout_marginBottom="8dp"
-                        android:text="예매율"
+                        android:text="@string/reservation_rate_title"
                         android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="14dp"
-                        android:text="5위 1.8%"
+                        android:text="@string/reservation_rate"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -206,7 +240,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
                         android:layout_marginBottom="8dp"
-                        android:text="평점"
+                        android:text="@string/rating_title"
                         android:textSize="18sp" />
 
                     <LinearLayout
@@ -228,7 +262,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="7dp"
                             android:layout_marginLeft="7dp"
-                            android:text="8.2"
+                            android:text="@string/rating"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -254,14 +288,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
                         android:layout_marginBottom="8dp"
-                        android:text="누적관객수"
+                        android:text="@string/num_audience_tiltle"
                         android:textSize="18sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="14dp"
-                        android:text="839,399명"
+                        android:text="@string/num_audience"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -285,7 +319,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="줄거리"
+                    android:text="@string/movie_summary_tilte"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -298,10 +332,7 @@
                     android:ems="10"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
-                    android:text="군도, 백성을 구하라\n양반과 탐관오리들의 착취가 극에 달했던 조선 철종 13년.\n힘 없는 백성의 편이 되어 세상을 바로잡고자 하는 의적떼인 군도(群盜), 지리산 추설이 있었다..\n\n쌍칼 도치 vs 백성의 적 조윤\n잦은 자연재해, 기근과
-관의 횡포까지 겹쳐 백성들의 삶이 날로 피례해 져 가는 사이, 나주 대부호의 서자로 조선 최고의 무관 출신인 조윤은 극악한 수법으로 양민들을 수탈, 삼남지방 최고의 대부호로 성장한다. 한편 소, 돼지를 잡아 근근이
-살아가던 천한 백정 돌무치는 죽어도 잊지 못할 끔찍한 일을 당한 뒤 군도에 합류, 지리산 추설의 신 거성(新巨星) 도치로 거듭난다.\n\n뭉치면 백성, 흩어지면 도적!\망할 세상을 뒤집기 위해, 백성이 주인인 새 세상을
-향해 도치를 필두로 한 군도는 백성의 적, 조윤과 한 판 승부를 시작하는데..."
+                    android:text="@string/movie_summary"
                     android:textSize="15sp"
                     tools:ignore="TextViewEdits" />
 
@@ -322,7 +353,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="감독/출연"
+                    android:text="@string/editor_member"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -339,7 +370,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="감독"
+                        android:text="@string/editor"
                         android:textColor="@android:color/black"
                         android:textSize="17sp"
                         android:textStyle="normal" />
@@ -349,7 +380,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="윤종빈"
+                        android:text="@string/editor_name"
                         android:textSize="17sp" />
 
                 </LinearLayout>
@@ -367,7 +398,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="출연"
+                        android:text="@string/member"
                         android:textColor="@android:color/black"
                         android:textSize="17sp"
                         android:textStyle="normal" />
@@ -377,13 +408,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="하정우(도치), 강동원(조윤)"
+                        android:text="@string/member_name"
                         android:textSize="17sp" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <!--한줄평-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -392,6 +424,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
+                <!--타이틀, 작성하기 버튼-->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -405,7 +438,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="한줄평"
+                        android:text="@string/review_title"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -413,37 +446,24 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <LinearLayout
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginRight="15dp"
                         android:layout_marginBottom="10dp"
+                        android:drawablePadding="5dp"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
+                        android:text="@string/edit_comment"
+                        android:textColor="#FF5722"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:drawableLeftCompat="@drawable/ic_review_selected"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/ic_review_selected" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="7dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="작성하기"
-                            android:textColor="#FF5722"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -453,19 +473,19 @@
                     android:layout_marginTop="7dp"
                     android:text="" />
 
+                <!--모두보기 버튼-->
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:background="@drawable/line_purple"
-                    android:text="모두 보기"
+                    android:text="@string/see_all_comment"
                     android:textColor="@color/purple_700"
-                    android:textSize="18sp"/>
-<!--                    app:backgroundTint="@null" />-->
-
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
+            <!--카카오톡, 페이스북, 예매하기 버튼-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -484,6 +504,7 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/error_message"
                     android:src="@drawable/ic_facebook" />
 
                 <ImageView
@@ -495,6 +516,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
+                    android:contentDescription="@string/error_message"
                     android:src="@drawable/ic_kakao" />
 
                 <Button
@@ -503,10 +525,11 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@color/reservation"
-                    android:text="예매하기"
+                    android:text="@string/reservation"
                     android:textColor="#ffffff"
                     android:textSize="22sp"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
         </LinearLayout>
