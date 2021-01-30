@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -57,7 +57,6 @@
 
                     <!--제목, 연령제한이미지-->
                     <LinearLayout
-                        android:id="@+id/linearLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -71,7 +70,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/movie_name"
-                            android:textColor="#ffffff"
+                            android:textColor="@color/white"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -94,7 +93,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginBottom="1dp"
                         android:text="@string/premiere_day"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -117,7 +116,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/genre"
-                            android:textColor="#ffffff"
+                            android:textColor="@color/white"
                             android:textSize="18sp" />
 
                         <TextView
@@ -126,14 +125,14 @@
                             android:layout_marginLeft="2dp"
                             android:layout_marginRight="2dp"
                             android:text="@string/slash"
-                            android:textColor="#ffffff"
+                            android:textColor="@color/white"
                             android:textSize="18sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/screening_time"
-                            android:textColor="#ffffff"
+                            android:textColor="@color/white"
                             android:textSize="18sp" />
 
                     </LinearLayout>
@@ -146,41 +145,44 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
-                        <ImageView
+                        <Button
+                            android:id="@+id/btn_thumbup"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:contentDescription="@string/error_message"
-                            android:src="@drawable/ic_thumb_up" />
+                            android:background="@drawable/btn_thumbup_pressed" />
 
                         <TextView
+                            android:id="@+id/tv_thumbupcount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginLeft="5dp"
                             android:text="@string/like_num"
-                            android:textColor="#ffffff"
+                            android:textColor="@color/white"
                             android:textSize="22sp"
                             android:textStyle="bold" />
 
-                        <ImageView
+                        <Button
+                            android:id="@+id/btn_thumbdown"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginStart="25dp"
                             android:layout_marginLeft="25dp"
-                            android:contentDescription="@string/error_message"
-                            android:src="@drawable/ic_thumb_down" />
+                            android:background="@drawable/btn_thumbdown_pressed" />
 
                         <TextView
+                            android:id="@+id/tv_thumbdowncount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_marginLeft="5dp"
                             android:text="@string/unlike_num"
-                            android:textColor="#ffffff"
+                            android:textColor="@color/white"
                             android:textSize="22sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -308,7 +310,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="#FFFFFF"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -343,7 +345,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="#FFFFFF"
+                android:background="@color/white"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -420,7 +422,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:background="#FFFFFF"
+                android:background="@color/white"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -526,7 +528,7 @@
                     android:layout_weight="1"
                     android:background="@color/reservation"
                     android:text="@string/reservation"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
