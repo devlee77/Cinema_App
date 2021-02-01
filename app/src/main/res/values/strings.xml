@@ -25,4 +25,11 @@
     <string name="slash">/</string>
     <string name="premiere_day">2014.07.23 개봉</string>
     <string name="movie_name">군도</string>
+    <string name="user_id">lsc09**</string>
+    <string name="review_time">10분전</string>
+    <string name="review_content">적당히 재밌다. 오랜만에 잠오는 영화봤네요.</string>
+    <string name="recommend">추천</string>
+    <string name="recommend_num">2</string>
+    <string name="report">신고하기</string>
+    <string name="slash2">|</string>
 </resources>
