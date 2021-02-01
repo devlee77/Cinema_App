@@ -469,11 +469,9 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:layout_width="360dp"
-                    android:layout_height="300dp"
-                    android:layout_marginTop="7dp"
-                    android:text="" />
+                <ListView
+                    android:layout_width="380dp"
+                    android:layout_height="300dp" />
 
                 <!--모두보기 버튼-->
                 <Button
