@@ -2,9 +2,12 @@ package com.example.cinema_java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private int likeCount = 15;
     private int unlikeCount = 1;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +62,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //리스트뷰처리
+        ListView lvReview = (ListView) findViewById(R.id.lv_review);
+        ReviewAdapter adapter = new ReviewAdapter(getApplicationContext());
+        adapter.addItem(new ReviewItem(R.drawable.user1,"lsc", "19:00:00", 5, "재밌어요", "0"));
+        adapter.addItem(new ReviewItem(R.drawable.user1,"asd155", "20:00:00", 4.5, "재미없어요", "20"));
+        adapter.addItem(new ReviewItem(R.drawable.user1,"vkmd444", "15:00:00", 3, "재미있을까요?", "14"));
+        adapter.addItem(new ReviewItem(R.drawable.user1,"lsc", "19:00:00", 5, "재밌어요", "0"));
+
+        lvReview.setAdapter(adapter);
+
+        //리스트뷰 중복스크롤
+        lvReview.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                lvReview.requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
     }
 
     //좋아요 버튼 메소드
@@ -66,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         tvThumbUpCount.setText(String.valueOf(likeCount));
         btnThumbUp.setSelected(true);
     }
+
     public void decrThumbUpCount() {
         likeCount -= 1;
         tvThumbUpCount.setText(String.valueOf(likeCount));
@@ -78,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         tvThumbDownCount.setText(String.valueOf(unlikeCount));
         btnThumbDown.setSelected(true);
     }
+
     public void decrThumbDownCount() {
         unlikeCount -= 1;
         tvThumbDownCount.setText(String.valueOf(unlikeCount));

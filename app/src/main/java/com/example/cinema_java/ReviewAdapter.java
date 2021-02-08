@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 
+//리뷰리스트뷰 어댑터
 public class ReviewAdapter extends BaseAdapter {
     ArrayList<ReviewItem> items = new ArrayList<ReviewItem>();
     Context context;
@@ -15,6 +16,7 @@ public class ReviewAdapter extends BaseAdapter {
         this.context = context;
     }
 
+    //아이템 리스트에 추가
     public void addItem(ReviewItem item){
         items.add(item);
     }
@@ -34,6 +36,8 @@ public class ReviewAdapter extends BaseAdapter {
         return i;
     }
 
+    //뷰처리
+    //뷰재활용
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         ReviewItemView itemView = null;
@@ -44,12 +48,7 @@ public class ReviewAdapter extends BaseAdapter {
         }
 
         ReviewItem item = items.get(i);
-        itemView.setIvUser(item.getUserImage());
-        itemView.setTvReviewId(item.getId());
-        itemView.setRatingbarReview(item.getRate());
-        itemView.setTvReviewTime(item.getTime());
-        itemView.setTvRecommendCount(item.getRecommend());
-        itemView.setTvReviewComment(item.getComment());
+        itemView.setData(item);
 
         return itemView;
     }
