@@ -44,7 +44,6 @@ public class ReviewItemView extends ConstraintLayout {
         tvRecommendCount = (TextView) findViewById(R.id.tv_recommend_count);
     }
 
-
     //setter
     public void setIvUser(int userImage) {
         ivUser.setImageResource(userImage);
@@ -58,8 +57,8 @@ public class ReviewItemView extends ConstraintLayout {
         tvReviewTime.setText(time);
     }
 
-    public void setRatingbarReview(float rate) {
-        ratingbarReview.setRating(rate);
+    public void setRatingbarReview(double rate) {
+        ratingbarReview.setRating((float) rate);
     }
 
     public void setTvReviewComment(String comment) {
@@ -68,5 +67,15 @@ public class ReviewItemView extends ConstraintLayout {
 
     public void setTvRecommendCount(String recommend) {
         tvRecommendCount.setText(recommend);
+    }
+
+    //아이템처리 함수
+    public void setData(ReviewItem item) {
+        ivUser.setImageResource(item.getUserImage());
+        tvReviewId.setText(item.getId());
+        ratingbarReview.setRating((float) item.getRate());
+        tvReviewTime.setText(item.getTime());
+        tvRecommendCount.setText(item.getRecommend());
+        tvReviewComment.setText(item.getComment());
     }
 }
