@@ -5,11 +5,11 @@ public class ReviewItem {
     private int userImage;
     private String id;
     private String time;
-    private int rate;
+    private double rate;
     private String comment;
     private String recommend;
 
-    public ReviewItem(int userImage, String id, String time, int rate, String comment, String recommend) {
+    public ReviewItem(int userImage, String id, String time, double rate, String comment, String recommend) {
         this.userImage = userImage;
         this.id = id;
         this.time = time;
@@ -43,7 +43,7 @@ public class ReviewItem {
         this.time = time;
     }
 
-    public int getRate() {
+    public double getRate() {
         return rate;
     }
 
