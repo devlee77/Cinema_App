@@ -46,27 +46,27 @@ public class ReviewItemView extends ConstraintLayout {
 
 
     //setter
-    public void setIvUser(ImageView ivUser) {
-        this.ivUser = ivUser;
+    public void setIvUser(int userImage) {
+        ivUser.setImageResource(userImage);
     }
 
-    public void setTvReviewId(TextView tvReviewId) {
-        this.tvReviewId = tvReviewId;
+    public void setTvReviewId(String id) {
+        tvReviewId.setText(id);
     }
 
-    public void setTvReviewTime(TextView tvReviewTime) {
-        this.tvReviewTime = tvReviewTime;
+    public void setTvReviewTime(String time) {
+        tvReviewTime.setText(time);
     }
 
-    public void setRatingbarReview(RatingBar ratingbarReview) {
-        this.ratingbarReview = ratingbarReview;
+    public void setRatingbarReview(float rate) {
+        ratingbarReview.setRating(rate);
     }
 
-    public void setTvReviewComment(TextView tvReviewComment) {
-        this.tvReviewComment = tvReviewComment;
+    public void setTvReviewComment(String comment) {
+        tvReviewComment.setText(comment);
     }
 
-    public void setTvRecommendCount(TextView tvRecommendCount) {
-        this.tvRecommendCount = tvRecommendCount;
+    public void setTvRecommendCount(String recommend) {
+        tvRecommendCount.setText(recommend);
     }
 }
