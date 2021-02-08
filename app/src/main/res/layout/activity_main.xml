@@ -470,6 +470,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ListView
+                    android:id="@+id/lv_review"
                     android:layout_width="380dp"
                     android:layout_height="300dp" />
 
