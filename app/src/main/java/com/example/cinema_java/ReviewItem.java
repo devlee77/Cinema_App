@@ -1,5 +1,6 @@
 package com.example.cinema_java;
 
+//리스트뷰의 아이템 받을 클래스
 public class ReviewItem {
     private int userImage;
     private String id;
@@ -17,6 +18,7 @@ public class ReviewItem {
         this.recommend = recommend;
     }
 
+    //getter, setter
     public int getUserImage() {
         return userImage;
     }
