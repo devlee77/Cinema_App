@@ -81,7 +81,23 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        TextView tvWriteReview = (TextView)findViewById(R.id.tv_write_review);
+        tvWriteReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showWriteReviewActivity();
+            }
+        });
+
     }
+
+    private void showWriteReviewActivity(){
+
+    }
+
+
+
 
     //좋아요 버튼 메소드
     public void incrThumbUpCount() {
