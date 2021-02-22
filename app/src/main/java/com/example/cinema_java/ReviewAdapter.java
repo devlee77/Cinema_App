@@ -5,11 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 //리뷰리스트뷰 어댑터
-public class ReviewAdapter extends BaseAdapter {
-    ArrayList<ReviewItem> items = new ArrayList<ReviewItem>();
+public class ReviewAdapter extends BaseAdapter implements Serializable {
+    private ArrayList<ReviewItem> items = new ArrayList<ReviewItem>();
     Context context;
 
     public ReviewAdapter(Context context) {
@@ -34,6 +35,14 @@ public class ReviewAdapter extends BaseAdapter {
     @Override
     public long getItemId(int i) {
         return i;
+    }
+
+    public ArrayList<ReviewItem> setItems(ArrayList<ReviewItem> arrayList){
+        return items = arrayList;
+    }
+
+    public ArrayList<ReviewItem> getItems(){
+        return items;
     }
 
     //뷰처리

@@ -1,7 +1,9 @@
 package com.example.cinema_java;
 
+import java.io.Serializable;
+
 //리스트뷰의 아이템 받을 클래스
-public class ReviewItem {
+public class ReviewItem implements Serializable {
     private int userImage;
     private String id;
     private String time;
