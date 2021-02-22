@@ -18,7 +18,7 @@ public class ReviewAdapter extends BaseAdapter implements Serializable {
     }
 
     //아이템 리스트에 추가
-    public void addItem(ReviewItem item){
+    public void addItem(ReviewItem item) {
         items.add(item);
     }
 
@@ -37,12 +37,21 @@ public class ReviewAdapter extends BaseAdapter implements Serializable {
         return i;
     }
 
-    public ArrayList<ReviewItem> setItems(ArrayList<ReviewItem> arrayList){
+    public ArrayList<ReviewItem> setItems(ArrayList<ReviewItem> arrayList) {
         return items = arrayList;
     }
 
-    public ArrayList<ReviewItem> getItems(){
+    public ArrayList<ReviewItem> getItems() {
         return items;
+    }
+
+    public float ratingAvg() {
+        float avg = 0;
+        for (int i = 0; i < items.size(); i++) {
+            avg += items.get(i).getRate();
+        }
+        avg /= items.size();
+        return avg;
     }
 
     //뷰처리
