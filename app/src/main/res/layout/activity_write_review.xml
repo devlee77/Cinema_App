@@ -31,7 +31,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center_vertical"
             android:background="@drawable/ic_15"
-            android:contentDescription="@string/error_image_message"/>
+            android:contentDescription="@string/error_image_message" />
     </LinearLayout>
 
     <View
@@ -52,7 +52,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:numStars="5"
-        android:rating="0.0"
+        android:rating="2.5"
         android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
