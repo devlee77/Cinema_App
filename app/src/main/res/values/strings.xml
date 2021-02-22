@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">씨네마천국</string>
-    <string name="error_message">사진을 불러올 수 없습니다.</string>
+    <string name="error_image_message">사진을 불러올 수 없습니다.</string>
     <string name="reservation">예매하기</string>
     <string name="see_all_comment">모두 보기</string>
     <string name="edit_comment">작성하기</string>
@@ -32,4 +32,8 @@
     <string name="recommend_num">2</string>
     <string name="report">신고하기</string>
     <string name="slash2">|</string>
+    <string name="rating_review">평점을 입력해주세요</string>
+    <string name="edit_review_hint">100자 이내로 작성해주세요.</string>
+    <string name="save">저장</string>
+    <string name="cancel">취소</string>
 </resources>
