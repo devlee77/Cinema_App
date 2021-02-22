@@ -36,4 +36,7 @@
     <string name="edit_review_hint">100자 이내로 작성해주세요.</string>
     <string name="save">저장</string>
     <string name="cancel">취소</string>
+    <string name="review_participate">명 참여)</string>
+    <string name="review_count">1008</string>
+    <string name="bracket">(</string>
 </resources>
