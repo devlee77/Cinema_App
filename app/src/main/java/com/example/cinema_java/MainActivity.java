@@ -3,14 +3,21 @@ package com.example.cinema_java;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    final int WRITE_REVIEW = 101;
+    final int ALL_REVIEW = 102;
+
+    private ReviewAdapter adapter;
 
     //좋아요싫어요 변수
     private TextView tvThumbUpCount;
@@ -22,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
     private int likeCount = 15;
     private int unlikeCount = 1;
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility", "DefaultLocale"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //좋아요 버튼 처리
-        tvThumbUpCount = (TextView) findViewById(R.id.tv_thumbupcount);
-        btnThumbUp = (Button) findViewById(R.id.btn_thumbup);
+        tvThumbUpCount = findViewById(R.id.tv_thumbupcount);
+        btnThumbUp = findViewById(R.id.btn_thumbup);
         btnThumbUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //싫어요 버튼 처리
-        tvThumbDownCount = (TextView) findViewById(R.id.tv_thumbdowncount);
-        btnThumbDown = (Button) findViewById(R.id.btn_thumbdown);
+        tvThumbDownCount = findViewById(R.id.tv_thumbdowncount);
+        btnThumbDown = findViewById(R.id.btn_thumbdown);
         btnThumbDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //리스트뷰처리
-        ListView lvReview = (ListView) findViewById(R.id.lv_review);
-        ReviewAdapter adapter = new ReviewAdapter(getApplicationContext());
-        adapter.addItem(new ReviewItem(R.drawable.user1,"lsc", "19:00:00", 5, "재밌어요", "0"));
-        adapter.addItem(new ReviewItem(R.drawable.user1,"asd155", "20:00:00", 4.5, "재미없어요", "20"));
-        adapter.addItem(new ReviewItem(R.drawable.user1,"vkmd444", "15:00:00", 3, "재미있을까요?", "14"));
-        adapter.addItem(new ReviewItem(R.drawable.user1,"lsc", "19:00:00", 5, "재밌어요", "0"));
+        ListView lvReview = findViewById(R.id.lv_review);
+        adapter = new ReviewAdapter(getApplicationContext());
+        adapter.addItem(new ReviewItem(R.drawable.user1, "lsc", "19:00:00", 5, "재밌어요", "0"));
+        adapter.addItem(new ReviewItem(R.drawable.user1, "asd155", "20:00:00", 4.5, "재미없어요", "20"));
+        adapter.addItem(new ReviewItem(R.drawable.user1, "vkmd444", "15:00:00", 3, "재미있을까요?", "14"));
+        adapter.addItem(new ReviewItem(R.drawable.user1, "lsc", "19:00:00", 5, "재밌어요", "0"));
 
         lvReview.setAdapter(adapter);
 
@@ -82,21 +89,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView tvWriteReview = (TextView)findViewById(R.id.tv_write_review);
-        tvWriteReview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showWriteReviewActivity();
-            }
-        });
 
+        //작성하기 눌렀을때
+        TextView tvWriteReview = findViewById(R.id.tv_write_review);
+        tvWriteReview.setOnClickListener(view -> showWriteReviewActivity());
+
+        //모두보기 눌렀을때
+        Button btnShowReviews = findViewById(R.id.btn_show_reviews);
+        btnShowReviews.setOnClickListener(view -> showAllReviewActivity());
     }
 
-    private void showWriteReviewActivity(){
+    //작성하기 메소드
+    private void showWriteReviewActivity() {
+        Intent intent_writeReview = new Intent(getApplicationContext(), WriteReviewActivity.class);
 
+        startActivityForResult(intent_writeReview, WRITE_REVIEW);
     }
 
+    //모두보기 메소드
+    private void showAllReviewActivity() {
+        Intent intent_allReview = new Intent(getApplicationContext(), AllReviewActivity.class);
 
+        intent_allReview.putExtra("list", adapter.getItems());
+        startActivityForResult(intent_allReview, ALL_REVIEW);
+    }
 
 
     //좋아요 버튼 메소드
