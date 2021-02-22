@@ -69,7 +69,7 @@
                 android:layout_marginLeft="5dp"
                 android:numStars="5"
                 android:padding="1dp"
-                android:rating="5" />
+                android:rating="4.5" />
 
         </LinearLayout>
 

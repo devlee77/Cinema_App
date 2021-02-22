@@ -76,7 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view2">
 
         <RatingBar
-            android:id="@+id/ratingbarSmall"
+            android:id="@+id/ratingbar"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +84,7 @@
             android:rating="4.5" />
 
         <TextView
+            android:id="@+id/tv_avg_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
@@ -102,6 +103,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_cnt_participant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/review_count"
@@ -164,7 +166,7 @@
 
     <ListView
         android:id="@+id/lv_review"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
