@@ -1,5 +1,6 @@
 package com.example.cinema_java;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -16,9 +17,13 @@ import java.io.Serializable;
 
 public class AllReviewActivity extends AppCompatActivity {
 
-    private final int WRITE_REVIEW = 101;
+    private static final int WRITE_REVIEW = 101;
 
     private ReviewAdapter adapter;
+    private TextView tvWriteReview;
+    private RatingBar ratingBar;
+    private TextView tvAvgRating;
+    private ListView lvReview;
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -26,20 +31,18 @@ public class AllReviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_review);
 
+        findId();
+
         //어댑터 받고 리스트뷰에 넣기
         adapter = new ReviewAdapter(getApplicationContext());
         adapter.setItems((ArrayList<ReviewItem>) getIntent().getSerializableExtra("list"));
-        ListView lvReview = (ListView) findViewById(R.id.lv_review);
         lvReview.setAdapter(adapter);
 
         //레이팅바, 평점만들기
-        TextView tvAvgRating = (TextView) findViewById(R.id.tv_avg_rating);
         tvAvgRating.setText(String.format("%.1f", adapter.ratingAvg() * 2));
-        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingbar);
         ratingBar.setRating(adapter.ratingAvg());
 
         //작성하기 버튼누르기
-        TextView tvWriteReview = (TextView) findViewById(R.id.tv_write_review);
         tvWriteReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,5 +65,28 @@ public class AllReviewActivity extends AppCompatActivity {
         Intent intent_writeReview = new Intent(getApplicationContext(), WriteReviewActivity.class);
 
         startActivityForResult(intent_writeReview, WRITE_REVIEW);
+    }
+
+    //작성하기 액티비티에서 값받기
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 101){
+            if(data != null){
+                float rating = data.getFloatExtra("rating", 0.0f);
+                String content = data.getStringExtra("content");
+
+                adapter.addItem(new ReviewItem(R.drawable.user1, "user", "10:00:00", rating, content, "0"));
+                lvReview.setAdapter(adapter);
+            }
+        }
+    }
+
+    private void findId() {
+        tvWriteReview = findViewById(R.id.tv_write_review);
+        ratingBar = findViewById(R.id.ratingbar);
+        tvAvgRating = findViewById(R.id.tv_avg_rating);
+        lvReview = findViewById(R.id.lv_review);
     }
 }
