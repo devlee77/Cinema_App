@@ -1,5 +1,6 @@
 package com.example.cinema_java;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -14,10 +15,13 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    final int WRITE_REVIEW = 101;
-    final int ALL_REVIEW = 102;
+    //액티비티 상수지정
+    private static final int WRITE_REVIEW = 101;
+    private static final int ALL_REVIEW = 102;
 
+    //리스트뷰 어댑터
     private ReviewAdapter adapter;
+    private ListView lvReview;
 
     //좋아요싫어요 변수
     private TextView tvThumbUpCount;
@@ -29,15 +33,19 @@ public class MainActivity extends AppCompatActivity {
     private int likeCount = 15;
     private int unlikeCount = 1;
 
+    //작성하기, 모두보기 변수
+    private TextView tvWriteReview;
+    private Button btnShowReviews;
+
     @SuppressLint({"ClickableViewAccessibility", "DefaultLocale"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findId();
+
         //좋아요 버튼 처리
-        tvThumbUpCount = findViewById(R.id.tv_thumbupcount);
-        btnThumbUp = findViewById(R.id.btn_thumbup);
         btnThumbUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //싫어요 버튼 처리
-        tvThumbDownCount = findViewById(R.id.tv_thumbdowncount);
-        btnThumbDown = findViewById(R.id.btn_thumbdown);
         btnThumbDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //리스트뷰처리
-        ListView lvReview = findViewById(R.id.lv_review);
         adapter = new ReviewAdapter(getApplicationContext());
         adapter.addItem(new ReviewItem(R.drawable.user1, "lsc", "19:00:00", 5, "재밌어요", "0"));
         adapter.addItem(new ReviewItem(R.drawable.user1, "asd155", "20:00:00", 4.5, "재미없어요", "20"));
@@ -91,11 +96,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         //작성하기 눌렀을때
-        TextView tvWriteReview = findViewById(R.id.tv_write_review);
         tvWriteReview.setOnClickListener(view -> showWriteReviewActivity());
 
         //모두보기 눌렀을때
-        Button btnShowReviews = findViewById(R.id.btn_show_reviews);
         btnShowReviews.setOnClickListener(view -> showAllReviewActivity());
     }
 
@@ -114,30 +117,60 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent_allReview, ALL_REVIEW);
     }
 
+    //다른 액티비티에서 값받기
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 101){
+            if(data != null){
+                float rating = data.getFloatExtra("rating", 0.0f);
+                String content = data.getStringExtra("content");
+
+                adapter.addItem(new ReviewItem(R.drawable.user1, "user", "10:00:00", rating, content, "0"));
+                lvReview.setAdapter(adapter);
+            }
+        }
+        if(requestCode == 102){
+            if(data != null){
+
+            }
+        }
+    }
 
     //좋아요 버튼 메소드
-    public void incrThumbUpCount() {
+    private void incrThumbUpCount() {
         likeCount += 1;
         tvThumbUpCount.setText(String.valueOf(likeCount));
         btnThumbUp.setSelected(true);
     }
 
-    public void decrThumbUpCount() {
+    private void decrThumbUpCount() {
         likeCount -= 1;
         tvThumbUpCount.setText(String.valueOf(likeCount));
         btnThumbUp.setSelected(false);
     }
 
     //싫어요 버튼 메소드
-    public void incrThumbDownCount() {
+    private void incrThumbDownCount() {
         unlikeCount += 1;
         tvThumbDownCount.setText(String.valueOf(unlikeCount));
         btnThumbDown.setSelected(true);
     }
 
-    public void decrThumbDownCount() {
+    private void decrThumbDownCount() {
         unlikeCount -= 1;
         tvThumbDownCount.setText(String.valueOf(unlikeCount));
         btnThumbDown.setSelected(false);
+    }
+
+    private void findId(){
+        tvThumbUpCount = findViewById(R.id.tv_thumbupcount);
+        btnThumbUp = findViewById(R.id.btn_thumbup);
+        tvThumbDownCount = findViewById(R.id.tv_thumbdowncount);
+        btnThumbDown = findViewById(R.id.btn_thumbdown);
+        lvReview = findViewById(R.id.lv_review);
+        tvWriteReview = findViewById(R.id.tv_write_review);
+        btnShowReviews = findViewById(R.id.btn_show_reviews);
     }
 }
