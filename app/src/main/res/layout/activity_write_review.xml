@@ -7,7 +7,7 @@
     tools:context=".WriteReviewActivity">
 
     <LinearLayout
-        android:id="@+id/name"
+        android:id="@+id/linearlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -42,10 +42,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout" />
 
     <RatingBar
-        android:id="@+id/ratingbar_comentrating"
+        android:id="@+id/rb_review_rating"
         style="?android:attr/ratingBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
-        android:id="@+id/text_comentrating"
+        android:id="@+id/tv_comentrating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -69,10 +69,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingbar_comentrating" />
+        app:layout_constraintTop_toBottomOf="@+id/rb_review_rating" />
 
     <EditText
-        android:id="@+id/edit_commentresult"
+        android:id="@+id/et_review_content"
         android:layout_width="380dp"
         android:layout_height="220dp"
         android:layout_marginTop="15dp"
@@ -83,7 +83,7 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_comentrating" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_comentrating" />
 
     <Button
         android:id="@+id/btn_review_save"
@@ -99,7 +99,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_review_cancel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_commentresult" />
+        app:layout_constraintTop_toBottomOf="@+id/et_review_content" />
 
     <Button
         android:id="@+id/btn_review_cancel"
@@ -117,6 +117,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_review_save"
-        app:layout_constraintTop_toBottomOf="@+id/edit_commentresult" />
+        app:layout_constraintTop_toBottomOf="@+id/et_review_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

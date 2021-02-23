@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/name"
+        android:id="@+id/linearlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
@@ -57,7 +57,7 @@
         android:background="#c4c4c4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -130,7 +130,7 @@
 
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tv_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
