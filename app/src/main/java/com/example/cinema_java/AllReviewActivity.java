@@ -23,9 +23,10 @@ public class AllReviewActivity extends AppCompatActivity {
     private TextView tvWriteReview;
     private RatingBar ratingBar;
     private TextView tvAvgRating;
+    private TextView tvCntParticipant;
     private ListView lvReview;
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +39,10 @@ public class AllReviewActivity extends AppCompatActivity {
         adapter.setItems((ArrayList<ReviewItem>) getIntent().getSerializableExtra("list"));
         lvReview.setAdapter(adapter);
 
-        //레이팅바, 평점만들기
+        //레이팅바, 평점, 참여인원만들기
         tvAvgRating.setText(String.format("%.1f", adapter.ratingAvg() * 2));
         ratingBar.setRating(adapter.ratingAvg());
+        tvCntParticipant.setText(Integer.toString(adapter.getCount()));
 
         //작성하기 버튼누르기
         tvWriteReview.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +74,7 @@ public class AllReviewActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 101){
+        if(requestCode == WRITE_REVIEW){
             if(data != null){
                 float rating = data.getFloatExtra("rating", 0.0f);
                 String content = data.getStringExtra("content");
@@ -88,5 +90,6 @@ public class AllReviewActivity extends AppCompatActivity {
         ratingBar = findViewById(R.id.ratingbar);
         tvAvgRating = findViewById(R.id.tv_avg_rating);
         lvReview = findViewById(R.id.lv_review);
+        tvCntParticipant = findViewById(R.id.tv_cnt_participant);
     }
 }

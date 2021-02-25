@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.addItem(new ReviewItem(R.drawable.user1, "asd155", "20:00:00", 4.5, "재미없어요", "20"));
         adapter.addItem(new ReviewItem(R.drawable.user1, "vkmd444", "15:00:00", 3, "재미있을까요?", "14"));
         adapter.addItem(new ReviewItem(R.drawable.user1, "lsc", "19:00:00", 5, "재밌어요", "0"));
-
         lvReview.setAdapter(adapter);
 
         //리스트뷰 중복스크롤
@@ -122,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 101){
-            if(data != null){
+        if (requestCode == WRITE_REVIEW) {
+            if (data != null) {
                 float rating = data.getFloatExtra("rating", 0.0f);
                 String content = data.getStringExtra("content");
 
@@ -131,8 +130,8 @@ public class MainActivity extends AppCompatActivity {
                 lvReview.setAdapter(adapter);
             }
         }
-        if(requestCode == 102){
-            if(data != null){
+        if (requestCode == ALL_REVIEW) {
+            if (data != null) {
 
             }
         }
@@ -164,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         btnThumbDown.setSelected(false);
     }
 
-    private void findId(){
+    private void findId() {
         tvThumbUpCount = findViewById(R.id.tv_thumbupcount);
         btnThumbUp = findViewById(R.id.btn_thumbup);
         tvThumbDownCount = findViewById(R.id.tv_thumbdowncount);
