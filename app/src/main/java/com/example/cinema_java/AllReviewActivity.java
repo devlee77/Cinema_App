@@ -74,8 +74,8 @@ public class AllReviewActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == WRITE_REVIEW){
-            if(data != null){
+        if (requestCode == WRITE_REVIEW) {
+            if (data != null) {
                 float rating = data.getFloatExtra("rating", 0.0f);
                 String content = data.getStringExtra("content");
 
