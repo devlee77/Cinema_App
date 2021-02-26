@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     //액티비티 상수지정
@@ -132,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
         }
         if (requestCode == ALL_REVIEW) {
             if (data != null) {
-
+                adapter.setItems((ArrayList<ReviewItem>) data.getSerializableExtra("list"));
+                lvReview.setAdapter(adapter);
             }
         }
     }
